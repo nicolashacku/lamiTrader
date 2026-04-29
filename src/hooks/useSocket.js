@@ -12,7 +12,7 @@ export const useSocket = () => {
     if (!user) return;
 
     if (!socketInstance) {
-      socketInstance = io('http://localhost:4000', {
+      socketInstance = io('https://lamitraderbackend.onrender.com', {
         transports: ['websocket'],
       });
     }
