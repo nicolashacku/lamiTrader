@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink font-body;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230e0e0e' fill-opacity='0.03'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-ink text-paper font-body font-semibold px-5 py-2.5 border-2 border-ink
+           shadow-card transition-all duration-150 hover:shadow-card-hover hover:-translate-y-px
+           active:translate-y-0 active:shadow-none cursor-pointer;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-paper font-body font-semibold px-5 py-2.5 border-2 border-ink
+           shadow-card-accent transition-all duration-150 hover:shadow-card-hover hover:-translate-y-px
+           active:translate-y-0 active:shadow-none cursor-pointer;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-ink font-body font-medium px-5 py-2.5 border-2 border-ink
+           transition-all duration-150 hover:bg-ink hover:text-paper cursor-pointer;
+  }
+
+  .card {
+    @apply bg-paper border-2 border-ink shadow-card transition-all duration-200
+           hover:shadow-card-hover hover:-translate-y-px;
+  }
+
+  .input-field {
+    @apply bg-paper border-2 border-ink px-3 py-2 font-body text-sm w-full
+           focus:outline-none focus:border-accent transition-colors duration-150
+           placeholder:text-muted;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 text-xs font-mono font-medium
+           border border-ink uppercase tracking-wider;
+  }
+
+  .badge-have {
+    @apply badge bg-ink text-paper;
+  }
+
+  .badge-want {
+    @apply badge bg-accent text-paper border-accent;
+  }
+
+  .badge-common {
+    @apply badge bg-cream text-ink;
+  }
+
+  .badge-rare {
+    @apply badge bg-gold text-ink border-gold;
+  }
+
+  .badge-legendary {
+    @apply badge bg-accent text-paper border-accent;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #ede8dc; }
+::-webkit-scrollbar-thumb { background: #0e0e0e; }
+::-webkit-scrollbar-thumb:hover { background: #e63329; }
+
+/* Smooth page transitions */
+.page-enter {
+  animation: fadeUp 0.3s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Sticker card flip animation */
+.sticker-card-inner {
+  transition: transform 0.4s ease;
+  transform-style: preserve-3d;
+}
+.sticker-card:hover .sticker-card-inner {
+  transform: rotateY(4deg) rotateX(-2deg);
+}
