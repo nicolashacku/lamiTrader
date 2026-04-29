@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/lamiTrader/',
+  base: '/', // En Vercel DEBE ser '/'
   server: {
     port: 5173,
     proxy: {
