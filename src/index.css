@@ -92,3 +92,19 @@
 .sticker-card:hover .sticker-card-inner {
   transform: rotateY(4deg) rotateX(-2deg);
 }
+
+/* ── Mobile safe-area + dvh support ─────────────────────────────────── */
+@supports (height: 100dvh) {
+  .h-dvh { height: 100dvh; }
+}
+
+/* Prevent iOS bounce on chat container */
+.chat-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Fix textarea resize on iOS */
+textarea {
+  -webkit-appearance: none;
+}
